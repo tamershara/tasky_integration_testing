@@ -17,4 +17,6 @@ public interface FrameworkConfig extends Config {
     @DefaultValue("https://tasky.qacart.com")
     @Key("pageBase.url")
     String pageBaseURL();
+
+    String regularUserToken();
 }
