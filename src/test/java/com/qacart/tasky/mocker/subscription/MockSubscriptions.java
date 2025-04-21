@@ -12,7 +12,7 @@ public final class MockSubscriptions {
                 post(urlEqualTo(testUrl))
                 .willReturn(
                         aResponse()
-                                .withStatus(200)
+                                .withStatus(201)
                                 .withBodyFile(mockedFile)
                 )
         );

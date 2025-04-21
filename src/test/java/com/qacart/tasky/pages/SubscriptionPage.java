@@ -29,4 +29,8 @@ public class SubscriptionPage implements BasePage {
         getDriver().findElement(subscribeButtonLocator).click();
     }
 
+    public boolean isUpgradeButtonDisabled() {
+        return getDriver().findElement(upgradeButtonLocator).isEnabled();
+    }
+
 }
