@@ -8,7 +8,7 @@ import static com.qacart.tasky.driver.managers.DriverManager.getDriver;
 public final class CookieUtility {
     private CookieUtility() {}
 
-    public void RegularUserCookie(){
+    public static void RegularUserCookieInsert(){
         Cookie RegularUserCookie = new Cookie("access_token", getConfig().regularUserToken());
         getDriver().manage().addCookie(RegularUserCookie);
         getDriver().navigate().refresh();
