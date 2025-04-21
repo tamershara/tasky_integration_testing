@@ -10,9 +10,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static com.qacart.tasky.Fixtures.CreditCardFixture.defaultCardInfo;
+import static com.qacart.tasky.mocker.auth.MockProfile.mockRegularProfile;
 import static com.qacart.tasky.mocker.auth.MockProfile.mockSubscribedProfile;
-import static com.qacart.tasky.mocker.subscription.MockSubscriptions.mockActiveSubscription;
-import static com.qacart.tasky.mocker.subscription.MockSubscriptions.mockCurrentSubscriptionToBeActive;
+import static com.qacart.tasky.mocker.subscription.MockSubscriptions.*;
 
 public class SubscriptionTest extends BaseTest {
     private final LoginPage loginPage = new LoginPage();
@@ -20,6 +20,8 @@ public class SubscriptionTest extends BaseTest {
     private final SubscriptionPage subscriptionPage = new SubscriptionPage();
     @BeforeMethod
     public void setUp() {
+        mockRegularProfile();
+        mockSubscriptionTypes();
         loginPage.load();
         loginPage.loginUsingCookies();
         dashboardPage.load();

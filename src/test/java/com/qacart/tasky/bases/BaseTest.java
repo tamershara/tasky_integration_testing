@@ -28,7 +28,7 @@ public class BaseTest {
 
     @AfterMethod
     protected void tearDown() {
-        getDriver().quit();
+        //getDriver().quit();
         wireMockServer.stop();
     }
 }

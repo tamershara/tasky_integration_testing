@@ -46,4 +46,16 @@ public final class MockSubscriptions {
         String testUrl = "/api/subscriptions/cancel";
         String mockedFile = "cancelledSubscription.json";
     }
+
+    public static void mockSubscriptionTypes(){
+        String testUrl = "/api/subscription-types";
+        String mockedFile = "subscriptionTypes.json";
+        stubFor(get(urlEqualTo(testUrl))
+                .willReturn(
+                        aResponse()
+                        .withStatus(200)
+                                .withBodyFile(mockedFile)
+                )
+                );
+    }
 }
