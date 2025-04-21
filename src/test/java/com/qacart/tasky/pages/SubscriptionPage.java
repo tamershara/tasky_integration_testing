@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 
 import static com.qacart.tasky.configs.ConfigFactory.getConfig;
 import static com.qacart.tasky.driver.managers.DriverManager.getDriver;
+import static com.qacart.tasky.mocker.auth.MockProfile.mockSubscribedProfile;
+import static com.qacart.tasky.mocker.subscription.MockSubscriptions.mockActiveSubscription;
+import static com.qacart.tasky.mocker.subscription.MockSubscriptions.mockCurrentSubscriptionToBeActive;
 
 public class SubscriptionPage implements BasePage {
    private final By upgradeButtonLocator = By.xpath("//button[normalize-space()='Upgrade']");
@@ -31,6 +34,12 @@ public class SubscriptionPage implements BasePage {
 
     public boolean isUpgradeButtonDisabled() {
         return getDriver().findElement(upgradeButtonLocator).isEnabled();
+    }
+
+    public void mockSubscriptionFlow() {
+        mockActiveSubscription();
+        mockCurrentSubscriptionToBeActive();
+        mockSubscribedProfile();
     }
 
 }

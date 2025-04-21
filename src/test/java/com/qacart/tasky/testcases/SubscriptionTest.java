@@ -20,19 +20,15 @@ public class SubscriptionTest extends BaseTest {
     private final SubscriptionPage subscriptionPage = new SubscriptionPage();
     @BeforeMethod
     public void setUp() {
-        mockRegularProfile();
-        mockSubscriptionTypes();
         loginPage.load();
-        loginPage.loginUsingCookies();
+        loginPage.loginUsingCookies("regular");
         dashboardPage.load();
         dashboardPage.clickOnSubscriptionTab();
     }
 
     @Test
     void upgradeButtonShouldBeDisabledAfterSubscription() {
-        mockActiveSubscription();
-        mockCurrentSubscriptionToBeActive();
-        mockSubscribedProfile();
+        subscriptionPage.mockSubscriptionFlow();
         CreditCardInfo creditCardInfo = defaultCardInfo();
         subscriptionPage.subscribe(creditCardInfo);
         Assert.assertFalse(subscriptionPage.isUpgradeButtonDisabled());
