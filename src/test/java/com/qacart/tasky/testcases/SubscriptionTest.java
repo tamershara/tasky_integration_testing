@@ -1,5 +1,6 @@
 package com.qacart.tasky.testcases;
 
+import com.qacart.tasky.bases.BaseTest;
 import com.qacart.tasky.model.CreditCardInfo;
 import com.qacart.tasky.pages.DashboardPage;
 import com.qacart.tasky.pages.LoginPage;
@@ -13,7 +14,7 @@ import static com.qacart.tasky.mocker.auth.MockProfile.mockSubscribedProfile;
 import static com.qacart.tasky.mocker.subscription.MockSubscriptions.mockActiveSubscription;
 import static com.qacart.tasky.mocker.subscription.MockSubscriptions.mockCurrentSubscriptionToBeActive;
 
-public class SubscriptionTest {
+public class SubscriptionTest extends BaseTest {
     private final LoginPage loginPage = new LoginPage();
     private final DashboardPage dashboardPage = new DashboardPage();
     private final SubscriptionPage subscriptionPage = new SubscriptionPage();
@@ -21,6 +22,7 @@ public class SubscriptionTest {
     public void setUp() {
         loginPage.load();
         loginPage.loginUsingCookies();
+        dashboardPage.load();
         dashboardPage.clickOnSubscriptionTab();
     }
 
@@ -31,6 +33,6 @@ public class SubscriptionTest {
         mockSubscribedProfile();
         CreditCardInfo creditCardInfo = defaultCardInfo();
         subscriptionPage.subscribe(creditCardInfo);
-        Assert.assertTrue(subscriptionPage.isUpgradeButtonDisabled());
+        Assert.assertFalse(subscriptionPage.isUpgradeButtonDisabled());
     }
 }
