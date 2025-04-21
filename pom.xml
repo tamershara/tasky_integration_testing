@@ -15,6 +15,7 @@
         <!-- Dependencies Versions-->
         <selenium-version>4.30.0</selenium-version>
         <owner-version>1.0.12</owner-version>
+        <wiremock-version>3.12.1</wiremock-version>
     </properties>
 
     <dependencies>
@@ -27,6 +28,12 @@
             <groupId>org.aeonbits.owner</groupId>
             <artifactId>owner</artifactId>
             <version>${owner-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wiremock</groupId>
+            <artifactId>wiremock</artifactId>
+            <version>${wiremock-version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
