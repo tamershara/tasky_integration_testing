@@ -26,4 +26,17 @@ public final class MockProfile {
                 )
         );
     }
+
+    public static void mockRegularProfile() {
+        String mockedFile = "regularProfile.json";
+        stubFor(get(urlEqualTo(testUrl))
+                .willReturn(
+                        aResponse()
+                                .withBodyFile(mockedFile)
+                                .withStatus(200)
+                )
+        );
+    }
+
+
 }
