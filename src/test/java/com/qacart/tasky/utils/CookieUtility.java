@@ -8,9 +8,15 @@ import static com.qacart.tasky.driver.managers.DriverManager.getDriver;
 public final class CookieUtility {
     private CookieUtility() {}
 
-    public static void RegularUserCookieInsert(){
-        Cookie RegularUserCookie = new Cookie("access_token", getConfig().regularUserToken());
-        getDriver().manage().addCookie(RegularUserCookie);
+    public static void regularUserCookieInsert(){
+        Cookie regularUserCookie = new Cookie("access_token", getConfig().regularUserToken());
+        getDriver().manage().addCookie(regularUserCookie);
+        getDriver().navigate().refresh();
+    }
+
+    public static void advancedUserCookieInsert(){
+        Cookie subscribedUserToken = new Cookie("access_token", getConfig().advancedUserToken());
+        getDriver().manage().addCookie(subscribedUserToken);
         getDriver().navigate().refresh();
     }
 }

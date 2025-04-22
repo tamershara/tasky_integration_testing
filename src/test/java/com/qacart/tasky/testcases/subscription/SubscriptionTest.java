@@ -1,4 +1,4 @@
-package com.qacart.tasky.testcases;
+package com.qacart.tasky.testcases.subscription;
 
 import com.qacart.tasky.bases.BaseTest;
 import com.qacart.tasky.model.CreditCardInfo;
@@ -10,9 +10,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static com.qacart.tasky.Fixtures.CreditCardFixture.defaultCardInfo;
-import static com.qacart.tasky.mocker.auth.MockProfile.mockRegularProfile;
-import static com.qacart.tasky.mocker.auth.MockProfile.mockSubscribedProfile;
-import static com.qacart.tasky.mocker.subscription.MockSubscriptions.*;
 
 public class SubscriptionTest extends BaseTest {
     private final LoginPage loginPage = new LoginPage();
@@ -27,10 +24,9 @@ public class SubscriptionTest extends BaseTest {
     }
 
     @Test
-    void upgradeButtonShouldBeDisabledAfterSubscription() {
-        subscriptionPage.mockSubscriptionFlow();
+    void upgradeButtonInSubscriptionPageShouldBeDisabledAfterSubscription() {
         CreditCardInfo creditCardInfo = defaultCardInfo();
         subscriptionPage.subscribe(creditCardInfo);
-        Assert.assertFalse(subscriptionPage.isUpgradeButtonDisabled());
+        Assert.assertFalse(subscriptionPage.isUpgradeButtonEnabled());
     }
 }
