@@ -19,4 +19,6 @@ public interface FrameworkConfig extends Config {
     String pageBaseURL();
 
     String regularUserToken();
+
+    String advancedUserToken();
 }
